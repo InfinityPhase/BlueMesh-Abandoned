@@ -2,6 +2,7 @@ import java.text.SimpleDateFormat;
 //import org.hashids;
 import java.util.UUID;
 import java.util.Random;
+//import BlueMesh.UserID;
 
 public class MeshMosh {
 	public static String meshID(){
@@ -11,6 +12,7 @@ public class MeshMosh {
 		/* Generates random # */
 		Random rand = new Random();
 		rand.nextInt(99);
+		UserID.returnUserID();
 		
 		return meshID;
 	}
