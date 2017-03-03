@@ -10,4 +10,8 @@ public class UserID {
 		String UserUUID = java.util.UUID.randomUUID().toString();
 		return UserUUID;
 	}
+	
+	public static void addMeshID() {
+		// Add a MeshID to UserID.json
+	}
 }

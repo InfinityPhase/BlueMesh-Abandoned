@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import org.json.simple.*;
 
 public class Message {
-	public static String writeMessage(String messageIn, String meshID) {
+	public static String writeMessage(String messageIn, String meshID) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		SimpleDateFormat time = new SimpleDateFormat("yyyy MM dd HH:mm aaa");
 			// Will output time like: "2017 03 03 01:18.AM"
 
@@ -16,7 +16,7 @@ public class Message {
 		mappedMessage.put("UserID", UserID.getUserUUID());
 		mappedMessage.put("MeshID", meshID);
 		mappedMessage.put("Timestamp", time.toString());
-		mappedMessage.put("Hash", hashMessage());
+		mappedMessage.put("Hash", hashMessage(messageIn));
 		mappedMessage.put("Message", messageIn);
 		
 		String JSONMessage = JSONValue.toJSONString(mappedMessage);
