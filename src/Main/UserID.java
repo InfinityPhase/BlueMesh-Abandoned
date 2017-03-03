@@ -7,6 +7,7 @@ public class UserID {
 	}
 	
 	public static String makeUserUUID(){
-		return String UserUUID = java.util.UUID.randomUUID();
+		String UserUUID = java.util.UUID.randomUUID().toString();
+		return UserUUID;
 	}
 }
