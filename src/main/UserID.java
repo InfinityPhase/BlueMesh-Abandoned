@@ -1,5 +1,3 @@
-package Main;
-
 import java.util.UUID;
 
 public class UserID {
