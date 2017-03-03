@@ -1,32 +1,39 @@
 import java.util.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import org.json.simple.*;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
-
-
+import org.json.simple.*;
 
 public class Message {
-	//MessageDigest 256Hash = MessageDigest.getInstance("SHA-256");
-		// Will output time like: "2017 03 03 01:18.AM"
-	
 	public static String writeMessage(String messageIn, String meshID) {
 		SimpleDateFormat time = new SimpleDateFormat("yyyy MM dd HH:mm aaa");
+			// Will output time like: "2017 03 03 01:18.AM"
 
 		Map mappedMessage = new LinkedHashMap();
 		mappedMessage.put("UserID", UserID.getUserUUID());
 		mappedMessage.put("MeshID", meshID);
 		mappedMessage.put("Timestamp", time.toString());
-		//mappedMessage.put("Hash", hashMessage());
+		mappedMessage.put("Hash", hashMessage());
 		mappedMessage.put("Message", messageIn);
 		
 		String JSONMessage = JSONValue.toJSONString(mappedMessage);
 		return JSONMessage;
 	}
-	/*
-	public static string hashMessage(String messageIn) {
-		256Hash.update(messageIn.getBytes("UTF-8"));
-		byte[] messageHash = messageIn.digest();
+	
+	public static String hashMessage(String messageIn) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		String messageHash = null;
+		MessageDigest hash = MessageDigest.getInstance("SHA-256");
+		hash.update(messageIn.getBytes("UTF-8"));
+		byte[] messageHashByte = hash.digest();
+		try {
+			messageHash = new String(messageHashByte, "UTF-8"); 
+		}
+		catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		return messageHash;
-	}*/
+	}
 }
