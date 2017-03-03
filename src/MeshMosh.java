@@ -8,7 +8,7 @@ public class MeshMosh {
 		SimpleDateFormat sdf = new SimpleDateFormat("HHmmss");
 		Random rand = new Random();
 		rand.nextInt(99);
-		Hashids hashids = new Hashids("BlueMeshLibrary");
+		Hashids hashids = new Hashids("BlueMeshLibrary", 4, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
 		String meshID = hashids.encode(UserID.returnUserUUID(), sdf, rand);
 		return meshID;
 	}
