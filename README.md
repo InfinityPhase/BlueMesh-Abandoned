@@ -1,5 +1,12 @@
-# BlueMesh
+# BlueMesh-Abandoned
 Android library for BLE mesh networking
+
+**Status**
+
+Sorry to disapoint, but this project, for now, is abandoned.
+I decided to use Cordova to support the app for multiple paltforms.
+
+:)
 
 **What is a Classic Network?**
 
